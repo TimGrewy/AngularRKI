@@ -15,7 +15,7 @@ export class RkiService {
   constructor(private http: HttpClient) { }
 
   getRki(cpr: string): Observable<RkiLookup> {
-    const url = `http://localhost:3000/rki/${cpr}`;
+    const url = `http://grewy.dk:3000/rki/${cpr}`;
     return this.http.get<RkiLookup>(url).pipe(
       tap(_ => console.log(`fetched rki id=${cpr}`)),
       catchError(this.handleError<RkiLookup>(`getRki cpr=${cpr}`))
@@ -23,7 +23,7 @@ export class RkiService {
   }
   
   hentPersonMedSkjultAdresse(rkiLookupextrainfo: RkiLookupExtraInfo) {
-    const url = `http://localhost:3000/rkifull/${rkiLookupextrainfo.firstName}`;
+    const url = `http://grewy.dk:3000/rkifull/${rkiLookupextrainfo.firstName}`;
     return this.http.get<RkiLookup>(url).pipe(
       tap(_ => console.log(`hentPersonMedSkjultAdresse ${url}`)),
       catchError(this.handleError<RkiLookup>(`hentPersonMedSkjultAdresse ${url}`))

@@ -22,6 +22,6 @@ import { RouterModule } from '@angular/router';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule implements OnInit { 
+export class AppModule { 
 
 }

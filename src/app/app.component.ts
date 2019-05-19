@@ -7,9 +7,5 @@ import { RkiLookup } from './rkilookup';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  cprNr = '0402831871';
-  besked = this.cprNr + ' er ikke i RKI';
-  rkiLookup = new RkiLookup();
-
 
 }
