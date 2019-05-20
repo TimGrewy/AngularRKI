@@ -6,13 +6,19 @@ import { HttpParams } from '@angular/common/http';
 
 @Component({
   selector: 'pm-rki-result',
-  template: `<p *ngIf="noCpr">Der skal angives et cprnummer for at søge<p>
-  <p *ngIf="!rkiLookup.extraInfoNeeded">Rki-result:</p>
-  <div *ngIf="!rkiLookup.extraInfoNeeded">
-  CPR: {{rkiLookup.cprNr}}<br/>
-  Registreret i RKI: {{rkiLookup.registreredInRki}}<br/>
+  template: `
+  <div *ngIf="noCpr">
+    <p>Der skal angives et cprnummer for at søge</p>
+    Prøv med disse:<br/>
+    <a href="http://grewy.dk/rki/?cpr=0402831871">grewy.dk/rki/?cpr=0402831871</a><br/>
+    <a href="http://grewy.dk/rki/?cpr=2510881020">grewy.dk/rki/?cpr=2510881020</a><br/>
   </div>
-  <pm-rki-extra-info *ngIf="rkiLookup.extraInfoNeeded"></pm-rki-extra-info>
+  <div *ngIf="!rkiLookup.extraInfoNeeded">
+    Rki-result:<br/>
+    CPR: {{rkiLookup.cprNr}}<br/>
+    Registreret i RKI: {{rkiLookup.registreredInRki}}<br/>
+  </div>
+  <pm-rki-extra-info *ngIf="rkiLookup && rkiLookup.extraInfoNeeded"></pm-rki-extra-info>
   `,
   styleUrls: ['./rki-result.component.css']
 })
